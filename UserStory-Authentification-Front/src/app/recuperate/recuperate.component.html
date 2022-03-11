@@ -1,0 +1,55 @@
+
+<div class="col-md-12">
+    <div class="card card-container">
+      <img
+        src="../../assets/images/background.png"
+       
+      />
+      <form
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+       
+        <div class="form-group">
+          <label for="email">We will be sending a reset password link.</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="form.email"
+            required
+            email
+            #email="ngModel"
+            placeholder="Enter your Email"
+          />
+          <div class="alert-danger" *ngIf="email.errors && f.submitted">
+            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors.email">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+       
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" >
+            Send
+            <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+          </button>
+        </div>
+  
+        <div class="alert alert-warning"   [hidden]="!invalid" *ngIf="f.submitted && isRecuperateFailed">
+        <br /> {{ errorMessage }}
+        </div>
+      </form>
+  
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Link is sent!
+      </div>
+    </div>
+  </div>
+  
+  
+  
