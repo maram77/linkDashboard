@@ -46,7 +46,7 @@ export class ResetPasswordComponent implements OnInit {
       (err:any) => {
         this.reset=false;
         //this.errorMessage = err.error.message;
-        this.errorMessage="Problem sending email";
+        this.errorMessage="Problem resetting password";
         this.isResetFailed = true;
       }
     );

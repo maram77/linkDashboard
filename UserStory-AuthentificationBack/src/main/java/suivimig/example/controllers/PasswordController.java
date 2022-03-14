@@ -49,7 +49,7 @@ public class PasswordController implements EmailService {
 
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setTo(existingUser.getEmail());
-            mailMessage.setSubject("Complete Password Reset!");
+            mailMessage.setSubject("Réinitialisation de mot de passe!");
             mailMessage.setFrom("meknimaram5@gmail.com");
             mailMessage.setText("Pour compléter le processus de réinitialisation de mot de passe, cliquez ici: "
                     + "http://localhost:4200/reset?token="+response);
