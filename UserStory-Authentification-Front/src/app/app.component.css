@@ -1,4 +1,47 @@
 nav{
- 
-    font-weight: bold;
+ font-weight: bold;
+ background-color: none;
+ padding:10px 40px;    
 }
+nav .navbar-brand{
+    width: 120px;
+}
+.nav-item .signup{
+    color: rgb(80, 78, 78);
+    transition: all .5s ease;
+   
+
+}
+.nav-item .signup:hover,  .signup:focus{
+    color: rgb(17, 17, 17);
+
+}
+.nav-item{
+    font-size:  17px;
+    margin-right: 10px;
+}
+.nav-item .login{
+    transition: all .8s ease;
+	border-radius: 30px;
+	font-weight: 500;
+	background-color: white;
+    color:#05a7a7;
+	margin:auto;
+    padding: 7px 15px;
+    border: 1px solid #05a7a7;
+    text-decoration: none;
+
+}
+
+.nav-item .login:hover, .login:focus{
+	background-color: #05a7a7;
+	color:#fff;
+  /*box-shadow: 0 0 5px rgba(0,80,80,.4); */
+
+}
+
+/* 
+#app{
+    height: 100%;
+} 
+*/

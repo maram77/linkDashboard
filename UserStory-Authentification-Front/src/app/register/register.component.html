@@ -1,10 +1,8 @@
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>            
 
-<div class="col-md-12">
-  <div class="card card-container">
-    <img
-      src="../../assets/images/background.png"
-     
-    />
+<div class="col-md-12 row">
+<div id="bottom" class="card card-container">
+<div class="bottom">
     <form
       *ngIf="!isSuccessful"
       name="form"
@@ -12,31 +10,38 @@
       #f="ngForm"
       novalidate
     >
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input
+    <h2 class="title2">S'inscrire</h2>
+    <div class="form-group">
+      <div class="input-field">
+      <!--<label for="username">Username</label>-->
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <input
+      placeholder="Nom utilisateur"
           type="text"
           class="form-control"
           name="username"
           [(ngModel)]="form.username"
           required
-          minlength="3"
+          minlength="9"
           maxlength="20"
           #username="ngModel"
-        />
+        /></div>
         <div class="alert-danger" *ngIf="username.errors && f.submitted">
-          <div *ngIf="username.errors.required">Username is required</div>
+          <div *ngIf="username.errors.required">Nom utilisateur est obligatoire!</div>
           <div *ngIf="username.errors.minlength">
-            Username must be at least 3 characters
+            Nom utilisateur doit contenir au moins 9 caractéres!
           </div>
           <div *ngIf="username.errors.maxlength">
-            Username must be at most 20 characters
+            Nom utilisateur doit contenir au maximum 20 caractéres!
           </div>
         </div>
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input
+        <div class="input-field">
+        <!--<label for="username">Username</label>-->
+        <i class="fa fa-envelope"></i>
+         <input
+          placeholder="Email"
           type="email"
           class="form-control"
           name="email"
@@ -44,67 +49,72 @@
           required
           email
           #email="ngModel"
-        />
+        /></div>
         <div class="alert-danger" *ngIf="email.errors && f.submitted">
-          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.required">Email est obligatoire!</div>
           <div *ngIf="email.errors.email">
-            Email must be a valid email address
+            Email doit être valide!
           </div>
         </div>
       </div>
       <div class="form-group">
-        <label for="password">Password</label>
+        <div class="input-field">
+        <i class="fa fa-lock" aria-hidden="true"></i>
         <input
           type="password"
           class="form-control"
           name="password"
-          id="password"
           [(ngModel)]="form.password"
           required
           minlength="6"
           #password="ngModel"
-        />
+          placeholder="Mot de passe"
+        /></div>
         <div class="alert-danger" *ngIf="password.errors && f.submitted">
-          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.required">Mot de passe est obligatoire!</div>
           <div *ngIf="password.errors.minlength">
-            Password must be at least 6 characters
+            Le mot de passe doit contenir au moins 6 caractères!
           </div>
         </div>
       </div>
-      
+
       <div class="form-group">
-        <label for="confirmPassword">confirm Password</label>
+        <div class="input-field">
+        <i class="fa fa-lock" aria-hidden="true"></i>
         <input
           type="password"
           class="form-control"
           name="confirmPassword"
-          id="confirmPassword"
           [(ngModel)]="form.confirmPassword"
           required
           minlength="6"
           #confirmPassword="ngModel"
-        />
+          placeholder="Confirmer le mot de passe"
+        /></div>
         <div class="alert-danger" *ngIf="(confirmPassword.errors && f.submitted )|| (password.value!=confirmPassword.value && f.submitted)">
-          <div *ngIf="confirmPassword.errors?.required">Confirm Password is required</div>
+          <div *ngIf="confirmPassword.errors.required">Confirmation du mot de passe est obligatoire!</div>
           <div *ngIf="(password.value!=confirmPassword.value)">
-            Passwords don't match
+            pas de correspondence entre les mots de passe!
           </div>
         </div>
       </div>
 
+
+
       <div class="form-group">
-        <button class="btn btn-primary btn-block">Sign Up</button>
+        <button class="btn btn-primary btn-block">Inscription</button>
       </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Signup failed!<br />{{ errorMessage }}
+        Inscription échouée!<br />{{ errorMessage }}
       </div>
     </form>
 
     <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
+      Votre Inscription est fait avec succée!
+    </div>
     </div>
   </div>
+  <img   src="../../assets/images/PNG/third.png" />
 </div>
-
 

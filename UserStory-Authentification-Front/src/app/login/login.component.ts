@@ -1,11 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
+import { AppRoutingModule } from '../app-routing.module';
+import { RecuperateComponent } from '../recuperate/recuperate.component';
+import { MatDialog,MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  encapsulation:ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
   form: any = {
@@ -17,8 +22,10 @@ export class LoginComponent implements OnInit {
   errorMessage =  '';
   roles: string[] = [];
   invalid=false;
+ 
+  
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -34,23 +41,35 @@ export class LoginComponent implements OnInit {
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-
+        this.invalid=false;
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
+        
+        
       },
+      
       err => {
         
-        //this.errorMessage = err.error.message;
-        this.errorMessage="No matching username or password";
+      // this.errorMessage = err.error.message;
+        this.errorMessage="Aucun nom d'utilisateur ou mot de passe correspondant";
         this.isLoginFailed = true;
-        this.invalid=true;
-      }
+       this.invalid=true;
+      } 
     );
   }
 
   reloadPage(): void {
     window.location.reload();
+    
+    
   }
+
+  openDialog() {
+    this.dialog.open(RecuperateComponent, {
+    });
+  }
+
+ 
 }

@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +18,8 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RecuperateComponent } from './recuperate/recuperate.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
+
 
 @NgModule({
   declarations: [
@@ -34,7 +38,10 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule
+    
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

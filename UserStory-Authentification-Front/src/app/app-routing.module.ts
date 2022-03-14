@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'admin', component: BoardAdminComponent },
-  { path: 'recuperate', component: RecuperateComponent },
+  /* { path: 'recuperate', component: RecuperateComponent }, */
   { path: 'reset', component: ResetPasswordComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];

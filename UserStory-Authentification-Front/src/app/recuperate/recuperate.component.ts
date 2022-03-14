@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 
 
+
+
 @Component({
   selector: 'app-recuperate',
   templateUrl: './recuperate.component.html',
@@ -16,8 +18,8 @@ export class RecuperateComponent implements OnInit {
   isSuccessful = false;
   isRecuperateFailed = false;
   errorMessage = '';
+  recuperate=false;
   invalid=false;
-  loading=false;
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -29,21 +31,26 @@ export class RecuperateComponent implements OnInit {
       ( data: any) => {
         console.log(data);
         this.isSuccessful = true;
-        this.isRecuperateFailed = false;
-        this.loading=true;
+       this.isRecuperateFailed = false
+        this.recuperate=true;
+        this.invalid=false;
+       
       },
       (err:any) => {
         this.errorMessage = err.error.message;
         //this.errorMessage="The email does not exist"
         this.invalid=true;
-        this.isRecuperateFailed = true;
-        this.loading=false;
+        this.recuperate=false;
+       this.isRecuperateFailed = true;
+        this.isSuccessful = false;
+        
       }
     );
   }
 
  
   
+
 
   
 

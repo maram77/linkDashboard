@@ -18,6 +18,7 @@ export class ResetPasswordComponent implements OnInit {
   isSuccessful = false;
   isResetFailed = false;
   errorMessage = '';
+  reset=false;
   token: string;
   constructor(private authService: AuthService,private route: ActivatedRoute) { }
   
@@ -37,13 +38,15 @@ export class ResetPasswordComponent implements OnInit {
     this.authService.reset(this.token,password).subscribe(
       ( data: any) => {
        
-        
+        this.reset=true;
         console.log(data);
         this.isSuccessful = true;
         this.isResetFailed = false;
       },
       (err:any) => {
-        this.errorMessage = err.error.message;
+        this.reset=false;
+        //this.errorMessage = err.error.message;
+        this.errorMessage="Problem sending email";
         this.isResetFailed = true;
       }
     );

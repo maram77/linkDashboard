@@ -51,7 +51,7 @@ public class PasswordController implements EmailService {
             mailMessage.setTo(existingUser.getEmail());
             mailMessage.setSubject("Complete Password Reset!");
             mailMessage.setFrom("meknimaram5@gmail.com");
-            mailMessage.setText("To complete the password reset process, please click here: "
+            mailMessage.setText("Pour compléter le processus de réinitialisation de mot de passe, cliquez ici: "
                     + "http://localhost:4200/reset?token="+response);
 
             // Send the email

@@ -61,7 +61,7 @@ public class UserService {
 
         userRepository.save(user);
 
-        return "Your password successfully updated.";
+        return "Mot de passe modifié avec succée!";
     }
 
     /**

@@ -19,6 +19,7 @@
 	margin:auto;
 }
 .btn:hover, .btn:focus{
+	box-shadow: 0 0 5px rgba(0,80,80,.4); 
 	background-color: #008080;
 	color:#fff;
 }
@@ -28,4 +29,10 @@ img {
 	height: 100%;
   }
 
-  
+  body, html {
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
