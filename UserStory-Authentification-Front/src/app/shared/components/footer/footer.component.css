@@ -1,0 +1,19 @@
+.content{
+
+    float: right;
+
+    padding: 20px;
+
+}
+
+img {
+
+    width:110px;
+
+    height: 25px;
+
+    object-fit:cover;
+
+    border-radius: 50%;
+
+  }
