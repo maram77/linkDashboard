@@ -19,6 +19,10 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { RecuperateComponent } from './recuperate/recuperate.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { DefaultModule } from './layouts/default/default.module';
+import { RouterModule } from '@angular/router';
+import { ChartsComponent } from './modules/charts/charts.component';
+
+
 
 
 
@@ -34,6 +38,9 @@ import { DefaultModule } from './layouts/default/default.module';
     BoardUserComponent,
     RecuperateComponent,
     ResetPasswordComponent,
+    ChartsComponent,
+    
+   
   
   ],
   imports: [
@@ -43,7 +50,8 @@ import { DefaultModule } from './layouts/default/default.module';
     HttpClientModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    DefaultModule
+    DefaultModule,
+    RouterModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

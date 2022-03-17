@@ -6,12 +6,14 @@ import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.componen
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { UsersComponent } from 'src/app/modules/users/users.component';
 
 
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,

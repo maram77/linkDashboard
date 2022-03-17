@@ -4,10 +4,10 @@
     height: 100%;
 }
 mat-drawer{
-    width: 14%;
-    margin: 20px;
-    margin-top: 40px;
-    padding: 20px;
+    width: 350px;
+  /*  margin: 20px;*/
+   /* margin-top: 40px;*/
+   padding: 20px;
   /* background-color: rgb(4, 64, 148);*/
    
   background-color: rgb(240, 242, 251);

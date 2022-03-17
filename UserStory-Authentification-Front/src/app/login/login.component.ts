@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   errorMessage =  '';
   roles: string[] = [];
   invalid=false;
+  router;
  
   
 
@@ -48,6 +49,7 @@ export class LoginComponent implements OnInit {
         this.reloadPage();
         
         
+        
       },
       
       err => {
@@ -62,6 +64,15 @@ export class LoginComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
+    /*
+    this.roles = this.tokenStorage.getUser().roles;
+    if (this.roles==['ROLE_COLLABORATEUR']){
+      this.router.navigate['/user'];
+    }
+    else{
+      this.router.navigate['/admin'];
+    }
+    */
     
     
   }
