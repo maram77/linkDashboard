@@ -1,9 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+
+import { MatToolbarModule} from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +27,16 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { DefaultModule } from './layouts/default/default.module';
 import { RouterModule } from '@angular/router';
 import { ChartsComponent } from './modules/charts/charts.component';
+import { MatFormFieldControl, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSortModule } from '@angular/material/sort';
+import { UsersComponent } from './modules/users/users.component';
+
+
+
+
 
 
 
@@ -38,7 +54,10 @@ import { ChartsComponent } from './modules/charts/charts.component';
     BoardUserComponent,
     RecuperateComponent,
     ResetPasswordComponent,
-    ChartsComponent,
+    ChartsComponent
+   
+ 
+   
     
    
   
@@ -47,12 +66,36 @@ import { ChartsComponent } from './modules/charts/charts.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatDialogModule,
     DefaultModule,
     RouterModule
+   
+    
+   
+    
+    
+   
+    
+    
+    
+    
+    
+
+    
+
+   
+   
+   
+  ], 
+  exports:[
+    
+    
+    
   ],
+  
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })

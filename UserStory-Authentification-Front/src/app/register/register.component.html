@@ -109,10 +109,12 @@
         Inscription échouée!<br />{{ errorMessage }}
       </div>
     </form>
-
-    <div class="alert alert-success" *ngIf="isSuccessful">
+    
+    <div class="alert alert-success" *ngIf="isSuccessful" >
       Votre Inscription est fait avec succée!
-    </div>
+      <br>
+      <p class="text-center"> <a class="link-style" href="/login" routerLink="/login">Se connecter</a></p>
+    </div> 
     </div>
   </div>
   <img   src="../../assets/images/PNG/third.png" />
