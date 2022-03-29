@@ -7,6 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-users',
@@ -22,6 +23,9 @@ export class UsersComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  isLoggedIn;
+  username;
+  hidden=true;
 
   
   @ViewChild(MatPaginator,{static:true}) paginator: MatPaginator;
@@ -29,9 +33,10 @@ export class UsersComponent implements OnInit {
   httpClient: any;
 
 
-  constructor( private userService: UserService, 
+  constructor( private userService: UserService, private tokenStorageService: TokenStorageService,
     private formBuilder:FormBuilder, httpClient:HttpClient,private modalService:NgbModal ) { 
    userService.getAllUsers().subscribe((users) => {
+     
     
      for (const user of users) {
       const newUser = new User(user.id, user.email, user.username);
@@ -53,6 +58,13 @@ export class UsersComponent implements OnInit {
    email:['',Validators.required],
    password:['',Validators.required]
  })
+
+ this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+ if (this.isLoggedIn) {
+  const user = this.tokenStorageService.getUser();
+  this.username = user.username;
+ }
  
   
  }
@@ -63,7 +75,7 @@ export class UsersComponent implements OnInit {
     next:(res)=>{
       this.users=res;
       //console.log(res);
-      console.log(this.users);
+      //console.log(this.users);
        this.dataSource=new MatTableDataSource(res);
        // this.dataSource = res;
           this.dataSource.paginator = this.paginator;
@@ -170,7 +182,7 @@ form: any = {
 
  
 
-  
+ 
 
   
 

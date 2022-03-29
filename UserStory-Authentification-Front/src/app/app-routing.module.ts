@@ -25,6 +25,7 @@ const routes: Routes = [
     { path:'dashboard',component:DashboardComponent},
     {path:'users', component:UsersComponent},
     {path:'charts', component:ChartsComponent},
+    {path:'',redirectTo:'dashboard',pathMatch:'full'}
   ]
 
   },

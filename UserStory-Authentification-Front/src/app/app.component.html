@@ -10,7 +10,7 @@
       </li>
       
       <li class="nav-item"  >
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Collaborateur</a>
+        <a href="/user" class="nav-link" [hidden]="showAdminBoard" *ngIf="isLoggedIn" routerLink="user">Collaborateur</a>
       </li>
       
     </ul>
@@ -26,7 +26,9 @@
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
       <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+        <!--
+        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a> -->
+        <a  class="nav-link" >{{ username }}</a> 
       </li>
       <li class="nav-item">
         <a href class="nav-link" (click)="logout()">déconnecter</a>
@@ -35,6 +37,8 @@
   </nav>
 
   
+    
     <router-outlet></router-outlet>
-  
-
+ 
+  <!--
+  <router-outlet></router-outlet> -->
