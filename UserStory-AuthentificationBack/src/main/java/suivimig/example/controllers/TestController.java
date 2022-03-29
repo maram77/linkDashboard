@@ -16,9 +16,7 @@ public class TestController {
     }
 
     @GetMapping("/user")
-    /*
-    @PreAuthorize("hasRole('COLLABORATEUR') or hasRole('ADMIN')")*/
-    @PreAuthorize("hasRole('COLLABORATEUR')")
+    @PreAuthorize("hasRole('COLLABORATEUR') or hasRole('ADMIN')")
     public String userAccess() {
         return " Dashboard Collaborateur .";
     }
@@ -30,5 +28,4 @@ public class TestController {
     public String adminAccess() {
         return " Dashboard Admin .";
     }
-
 }

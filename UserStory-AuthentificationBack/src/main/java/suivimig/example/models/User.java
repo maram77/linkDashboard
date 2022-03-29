@@ -37,14 +37,26 @@ public class User {
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime tokenCreationDate;
 
-
-
-
+    /*--------------------------------------------------------*/
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
+    private Set<Role> roles;
+
+    /*--------------------------------------------------------*/
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "user_product",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "id_prod") }
+    )
+    Set<Product> products = new HashSet<>();
+
+    {
+        roles = new HashSet<>();
+    }
+
 
     public User() {
     }
@@ -111,6 +123,5 @@ public class User {
     public void setTokenCreationDate(LocalDateTime tokenCreationDate) {
         this.tokenCreationDate = tokenCreationDate;
     }
-
 
 }

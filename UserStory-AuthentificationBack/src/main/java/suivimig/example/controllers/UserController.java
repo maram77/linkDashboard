@@ -3,11 +3,11 @@ package suivimig.example.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import suivimig.example.Services.UtilisatService;
 import suivimig.example.exceptions.ResourceNotFoundException;
 import suivimig.example.models.User;
 import suivimig.example.payload.request.SignupRequest;
 import suivimig.example.repository.UserRepository;
+import suivimig.example.services.UtilisatService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -55,7 +55,7 @@ public class UserController {
 
     @PutMapping("/updateUser/{id}")
     public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long employeeId,
-                                                   @Valid @RequestBody User employeeDetails) throws ResourceNotFoundException {
+                                           @Valid @RequestBody User employeeDetails) throws ResourceNotFoundException {
         User employee = userRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
 
@@ -72,9 +72,5 @@ public class UserController {
     public boolean deleteUserById(@PathVariable long id){
         return userService.deleteUserByID(id);
     }
-   
-
-
-
 
 }

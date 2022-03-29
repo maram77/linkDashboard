@@ -1,4 +1,4 @@
-package suivimig.example.Services;
+package suivimig.example.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +15,14 @@ import suivimig.example.repository.UserRepository;
 
 import javax.validation.Valid;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 @Service
 public class UtilisatService {
+
+
+
     @Autowired
     UserRepository userRepository;
     @Autowired
@@ -119,18 +121,5 @@ public class UtilisatService {
         return false;
 
     }
-
-
-    /*
-    public boolean deleteUser(User user) {
-        User existingUser= userRepository.getById(user.getId());
-        if(existingUser!= null){
-            userRepository.deleteById(user.getId());
-            return true;
-        }
-        return false;
-
-    }
-
-     */
 }
+
