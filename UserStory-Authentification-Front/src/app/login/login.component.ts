@@ -79,6 +79,7 @@ export class LoginComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(RecuperateComponent, {
+      
     });
   }
 

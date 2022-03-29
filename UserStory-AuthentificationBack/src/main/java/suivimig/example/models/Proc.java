@@ -51,11 +51,11 @@ public class Proc{
 
     @Column(name = "dateMAJ")
     private String dateMAJ;
-
+    /*
     @Column(name = "date_creation")
-    private String date_creation;
+    private String date_creation; */
 
-    @Column(name = "comment")
+    @Column(name = "commentaireMig")
     private String comment;
 
     @Column(name="prioriteJas")
@@ -96,8 +96,9 @@ public class Proc{
     @ManyToOne
     private Product product;
     /*-----------------------------------------------------------*/
-    @Column(name="couvert")
-    private boolean couvert;
+
+    @Column(name="couvert",columnDefinition = "boolean default false")
+    private Boolean couvert;
 
     public Proc() {
     }
