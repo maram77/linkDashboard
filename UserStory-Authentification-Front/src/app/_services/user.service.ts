@@ -57,6 +57,6 @@ export class UserService {
   updateUser(data:any,id:number) {
     return this.http.put<any>(this.updateEmpUrl+'/'+id,data);
   }
-
+ 
 
 }

@@ -41,12 +41,19 @@
             <td mat-cell *matCellDef="let row"> {{row.username}} </td>
           </ng-container>
 
+           <!-- Fruit Column -->
+           <ng-container matColumnDef="roles">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+            <td mat-cell *matCellDef="let row"> {{getRoles(row.roles)}} </td>
+          </ng-container>
+
           
            <!-- Fruit Column -->
            <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
             <td mat-cell *matCellDef="let row" >
-              <button mat-icon-button color="primary" type="submit" title="Make Admin" (click)="openEdit(contentEdit, row)" [disabled]="username==row.username"> 
+              
+              <button mat-icon-button color="primary" type="submit" title="Make Admin" (click)="openEdit(row)" [disabled]="username==row.username"> 
                
                 <mat-icon>edit</mat-icon>
                 
@@ -263,7 +270,7 @@
   </div>
 </ng-template>
 
-
+<!--
 <ng-template #contentEdit let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title"> Modifier Utilisateur</h4>
@@ -313,6 +320,7 @@
     </div>
   </div>
 </ng-template>
+-->
 
 
 

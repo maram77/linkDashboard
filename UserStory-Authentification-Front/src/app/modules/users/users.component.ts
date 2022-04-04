@@ -16,7 +16,7 @@ import { Role } from 'src/app/models/role/role';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'email', 'username','action'];
+  displayedColumns: string[] = ['id', 'email', 'username','roles','action'];
   users:User[]=[];
   dataSource: MatTableDataSource<User>;
   userDetail:FormGroup;
@@ -28,10 +28,13 @@ export class UsersComponent implements OnInit {
   isLoggedIn;
   username;
   hidden=true;
+  roleAdmin=	[ { "id": 1, "name": "ROLE_ADMIN" } ]
    /*************** */
    user:any={};
    role:Role[] ;
-   roles:any=[{"name":"ROLE_ADMIN"},{"name":"ROLE_COLLABORATEUR"}]
+   roles:any=[{"name":"ROLE_ADMIN"},{"name":"ROLE_COLLABORATEUR"}];
+  
+
 
 
   
@@ -74,6 +77,7 @@ export class UsersComponent implements OnInit {
  if (this.isLoggedIn) {
   const user = this.tokenStorageService.getUser();
   this.username = user.username;
+ 
  }
  this.editForm=this.formBuilder.group({
   id:[''],
@@ -151,7 +155,7 @@ addUser(){
     this.userService.addUser(this.userDetail.value)
     .subscribe({
       next:(res)=>{
-        alert("Admin ajouté avec succée!")
+        alert("Utilisateur ajouté avec succée!")
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         this.userDetail.reset();
@@ -203,23 +207,14 @@ openn(content) {
 }
 
 
-onSubmit(f: NgForm) {
-  
-  const url = 'http://localhost:8080/api/auth/addUser';
-  if(this.user==undefined){return;}
-  this.httpClient.post(url,this.user)
-    .subscribe((result) => {
-      this.refresh(); //reload the table
-    });
-  this.modalService.dismissAll(); //dismiss the modal
-}
+
  
 getRoles(roles:any[]):string{
   let str:string='';
- roles.forEach(element => {
-   str=str+''+element.name;
+  roles?.forEach(element => {
+     str=str+''+element.name;
 
- });
+ })
  return str;
 }
 
@@ -231,12 +226,10 @@ openDetails(targetModal, user: User) {
 
 }
 
-openEdit(targetModal, row:User) {
+openEdit( row:User) {
  
   
-  this.modalService.open(targetModal, {
-  
-  });
+ 
  this.editForm.setValue( {
    
     id: row.id, 
@@ -246,11 +239,12 @@ openEdit(targetModal, row:User) {
     roles :row.roles
     
   });
+  this.update(row);
   
 }
 
-update() {
-  console.log(this.editForm.value);
+update(row:User) {
+  
   this.userService.updateUser(this.editForm.value,this.editForm.value.id)
   .subscribe({
     next:(res)=>{
