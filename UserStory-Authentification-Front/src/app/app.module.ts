@@ -33,6 +33,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSortModule } from '@angular/material/sort';
 import { UsersComponent } from './modules/users/users.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -71,7 +72,8 @@ import { UsersComponent } from './modules/users/users.component';
     BrowserAnimationsModule,
     MatDialogModule,
     DefaultModule,
-    RouterModule
+    RouterModule,
+    CommonModule
    
     
    

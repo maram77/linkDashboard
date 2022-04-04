@@ -64,7 +64,7 @@ public class UtilisatService {
         } else {
             strRoles.forEach(role -> {
                 switch (role) {
-                    case "collaborateur":
+                    case "ROLE_COLLABORATEUR":
                         Role adminRole = roleRepository.findByName(ERole.ROLE_COLLABORATEUR)
                                 .orElseThrow(() -> new RuntimeException("Erreur: Role n'existe pas."));
                         roles.add(adminRole);

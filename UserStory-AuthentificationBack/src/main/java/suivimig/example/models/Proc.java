@@ -93,8 +93,9 @@ public class Proc{
     private StatutJasper statutJasper;
 
     /*-----------------------------------------------------------*/
+    /*
     @ManyToOne
-    private Product product;
+    private Product product; */
     /*-----------------------------------------------------------*/
 
     @Column(name="couvert",columnDefinition = "boolean default false")
